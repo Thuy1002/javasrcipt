@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul>
+        <p>khai báo mảng </p>
+        <span>thông thườn thì được khai báo là const "tên biến" = ["abc","ab","ss"]</span>
+        <br>
+        <span>có thể tạo trước 1 mảng rỗng rồi cũng cấp phần tử cho mảng đó</span>
+        <br>
+        <span>ví dụ : const array_rong = [];</span>
+        <br>
+        <span> array_rong[1] = "phần tử thứ 1" || trong đó 1 là vị trí của phẩn tử trong mảng. trong trường hợp này thì
+            vị
+            trí thứ 1 trong mảng được thêm vào là "phần tử thứ 1 trỏng mảng"</span>
+        <br>
+        <span>có thể thay thế phần tử trong mảng bằng cách gọi mảng ra và chuyền vào tham số thứ tự của mảng rồi thay
+            thế
+            bằng giá trị mới</span>
+        <br>
+        <span>eg: arr_rong[1] = " thay đổi " || kết quả trả về phần tử thứ 1 của mảng đã được thay đổi giá trị là "Thay
+            đổi"</span>
+
+    </ul>
+    <br>
+    <span>có thể dùng toString() để chuyển đổi 1 mảng vè 1 chuối .</span>
+    <br>
+    <span>để tìm kiếm vị trí cuối cùng của mảng có thể dùng mảng.lenght-1 || kết quả trả về vị trí cuối của mảng</span>
+    <br>
+    <h3>mảng và đối tượng khác nhau || mảng là đối tượng đặc biệt được đánh số thứ tự và có thê thay đổi giá trị của số
+        thự tự đó </h3>
+    <br><span> để kiếm tra có phải là mảng hay không thì dùng Array.isArray(_mảng cần check__)</span>
+    <span style="color: red;">nếu đúng kết quả trả về true và sai thì fale </span>
+    <br>
+    <h3 style="color: #07f342;">dùng splice để thêm 1 hoặc nhiều phần tử vào mảng</h3>
+    <h4 style="color: #ff00d0;">eg: splice(start(chỉ mục), deleteCount (số lượng phần tử xóa tại vị trí bắt đầu của chỉ
+        mục), item1, item2, .....)</h4>
+
+    <h3>Dùng join để nối tất cả phần tử trong mảng thành 1 chuổi </h3>
+    <br>
+    <span>eg: const arr = ['abc','aa']</span>
+    <br>
+    <span>arr.join('*')</span>
+    <span>kết quả trả về là abc * aa</span>
+    <br>
+
+    <h3>unshift(value) thêm một phần tử mới ở đầu bảng </h3>
+    <br>
+    <h4>hoắc có thể dùng fruits[fruits.length] = "value" để thêm phần tử mới vào mảng thêm ở cuối mảng</h4>
+    <br>
+    <h3>để xóa phần tử trong mảng dùng delete _arr_[_vị trí phần tử cần xóa_]</h3>
+    <br>
+    <span>eg: const arr = [2,'ww']</span>
+    <br>
+    <span>delete arr[1]</span>
+    <br>
+    <span>kết quả trả về arr còn 1 phần tử trong mảng tại vị trí 0 có giá trị là 2</span>
+    <br>
+    <h3>nối các mảng lại với nhau thì dùng || CONCAT(arr_2) kết quả trả về sẽ ra một mảng mới (không thể thay đổi (ảnh
+        hưởng) mảng hiện tại) || eg: <span style="color: red;">arr_1.concat(arr_2,.....)</span></h3>
+    <span>cũng có thể thêm mới phẩn tử vào mảng bằng || arr1.concat("phẩn tử mới")</span>
+
+    <ul>
+        <h3>copyWithin() sao chép một phần tử của mảng vào vị trí khác trong mảng đó</h3>
+        <li> nếu chuyền 2 tham số vào copyWithin(1,2) thì tham số thứ 1 là vị trí bắt đầu bạn muốn sao chép các phần tử,
+            còn tham số thứ là vị trí phần tử sao cheps
+        </li>
+        <li>Nếu chuyền vào 3 tham số thì || tham số thứ 3 là vị trí bắt đầu không bị sao chép</li>
+
+
+    </ul>
+
+    <ul>
+        <h3>slice cắt một phần của mảng rồi tạo ra mảng mới</h3>
+        <li>trong trường hợp chuyền 2 tham số vào || tham số thứ 1 là vị trí bắt đầu cắt ra đến tham số thứ 2 là điểm
+            kết thức để cắt( không bao gồm tham số thứ 2). </li>
+        <span>eg arr_1 = ["adđ","1111d","âsssss"]</span>
+        <br>
+        <span>eg arr_2 = arr_1.slice (1,2)</span>
+        <br>
+        <span>kết quả trả về là mảng arr_2 = ["111d"]</span>
+    </ul>
+</body>
+<script>
+    const arr = ["abc", "ahhz"];
+    console.log(arr); //chả về mảng có 2 phaafnn tử mà chiều dài là 2
+
+    const arr_rong = [];
+    arr_rong[1] = "phần tử thứ 1";
+    console.log(arr_rong);//kq trả về mảng tại phần tử thứ 1 như vậy sẽ độ dài của mảng là 2
+    console.log(arr_rong.length - 1);//kq trả về vị trí cuối của mảng là 1
+    //dùng push để thêm phần tử vào mảng
+    arr_rong.push(number = 3, 4);
+    console.log("mảng dùng push" + arr_rong);
+    console.log(arr_rong);
+
+    //   arr_rong.splice(2, 2, "phần tử mới 1", "phần tử mới 2");// số 3 và 4 bị xóa vào thêm bằng giá trị mới
+    //  console.log(arr_rong);
+
+    // document.write(arr_rong.join(1));// kết quả trả về là thêm 1 vào tất cả phần tử trong mảng thành 1 chuỗi
+    // console.log(arr_rong.join(1));
+
+    //dùng delete để xóa phân tử trong mảng
+    delete arr_rong[1];
+    //  document.write(arr_rong);
+
+
+</script>
+
+</html>
+
