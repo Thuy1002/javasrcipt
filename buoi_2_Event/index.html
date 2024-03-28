@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p attribute="Event trong javascript" id="time">Event trong javascript</p> <!--   attribute = "ABc" -->
+    <!--  CÁch 1___có thể thêm thuộc tính bát kỳ để lưu giữ nột dung trong đoạn code || 'attribute = "Nội dung gì cũng được"'
+    rồi ở dưới ta có thể gọi ra rồi innerhtml vào el đó -->
+    <button onclick="cahngr()">What time ?</button>
+    <button onclick="exit()">QUay lại</button>
+    <button onclick="exit_2()">QUay lại</button>
+</body>
+<script>
+    // dùng innerHTMl để thêm phần tử mới 
+    function cahngr() {
+        var time = document.getElementById('time');
+        time.innerHTML = Date();
+    }
+    function exit() {
+        // Cách_2   |||nếu muốn dùng để quay lại ban đầu bạn cần lưu dữ lại đoạn text
+        var el = document.getElementById('time')
+        var att = el.getAttribute('attribute');
+        el.innerHTML = att;
+    }
+    function exit_2() {
+        // Cách_2   |||nếu muốn dùng để quay lại ban đầu bạn cần lưu dữ lại đoạn text
+        //Gán biến 
+        const att = "Event trong javascript_2";
+        var el = document.getElementById('time');
+        el.innerHTML = att;
+    }
+    //dùng lenght để kiểm tra độ dai trong chuỗi
+    //thuộc tính textContent được dùng để chả về ( thay đổi ) hoăc thay thế chuỗi ký tự ;
+    var lenght = document.getElementById('time').textContent.length;
+    document.write("Độ dài của chuỗi là: " + lenght);
+
+   
+    // khai báo đối tượng trong js | dùng typeof để kiểm tra kiểu dữ liệu
+    // không thể só sánh các đối tượng
+    var obj = new String('abc');
+    if (  typeof obj === 'object') {
+      document.write (" <br>"+"là kiểu đối tượng");
+    }
+    console.log(obj);
+
+    /*  
+    indexOf  dùng để tìm kiếm vị trí của chuỗi 
+    */
+   var timkiemchuoi = document.getElementById('time');
+   var abc =  timkiemchuoi.getAttribute('attribute');
+   var eg1 =  abc.indexOf('trong');
+  // var ac =  abc.indexOf('trong',13);//có thể chuyền tham số thứ 2 vào để tìm kiếm bắt đầu tự vị trí đó(13 là vị trí được bắt đầu tìm kiếm)
+   document.write(" <br>"+"vị trí của chuỗi 'trong' là:"+eg1);
+  
+   /* tương tự cách dùng trên 
+   thì lastIndexOf() tìm kiếm vị trí cuối cùng xuất hiện của chuỗi Nếu không tìm được kết quả sẽ chả về -1 */
+   var eg = "trong đây toàn là thứ trong";
+   var eg2 =  eg.lastIndexOf('trong'); ///22
+   var zzzzz =  eg.lastIndexOf('trong',4);//tham số 4 chuyền vào là tìm kiếm từ vị trí thứ 4 trong chuối 
+   document.write(" <br>"+"vị trí cuối cùng trong chuỗi' là:"+eg2);
+   document.write(" <br>"+"vị trí cuối cùng trong chuỗi khi chuyền tham số thứ 2 bắt đầu tìm kiếm từ 4 là:"+zzzzz);//16
+   console.log(zzzzz)
+
+
+   /*
+   có thể dùng search để tìm kiếm vị trí của chuỗi đa số nt dùng search để tìm kiém
+   cũng ứng dụng như cách trên
+   trong điều kiện không tìm được chuỗi thì kết quả chả về -1
+   */
+
+
+  /*
+  dùng  includes để kiểm tra có trong chuỗi hay không
+  có thì chả về true và ngược là false
+  eg: 
+ 
+  */
+  var dung_includes = "tìm kiếm có trog chuỗi hay không. CÓ thì chả về true và không thì false";
+  console.log( dung_includes.includes('t'));/// trả về true
+</script>
+
+</html>
