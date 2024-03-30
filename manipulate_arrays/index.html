@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" name="" id="search_data">
+    <button onclick="tangdan()"> Giá thấp đến cao</button>
+    <button onclick="giamdan()"> Giá cao đến thấp</button>
+    <table>
+        <thead>
+            <th>name</th>
+            <th>price</th>
+        </thead>
+        <tbody id="data-table">
+            <td></td>
+        </tbody>
+    </table>
+    <script>
+        const data = [
+            { name: "iphone", price: 20000 },
+            { name: "samsung", price: 444 },
+            { name: "vovol", price: 111 },
+            { name: "nokia", price: 777 },
+            { name: "ari", price: 44444 }
+        ]
+
+        function renderHtml(arr) {
+            document.getElementById('data-table').innerHTML = '';
+            arr.forEach(element => {
+                const tr = document.createElement('tr');
+                tr.innerHTML = `<td>${element.name}</td><td>${element.price}</td>`;
+                document.getElementById('data-table').appendChild(tr);
+            });
+        }
+        // function search(query) {
+        //     const abc = data.filter(item => item.name.toLocaleLowerCase().includes(query.toLocaleLowerCase()));
+        //     console.log("đây là mảng mới" + JSON.stringify(abc)); // dùng json.stringify để chuyển đổi từ object thành chuỗi json rồi mới log ra màn hih
+        //     return renderHtml(abc);
+        // }
+        document.getElementById('search_data').addEventListener('input', function () {
+            const query = this.value;
+            const abc = data.filter(item => item.name.toLocaleLowerCase().includes(query.toLocaleLowerCase()));
+            console.log("đây là mảng mới" + JSON.stringify(abc)); // dùng json.stringify để chuyển đổi từ object thành chuỗi json rồi mới log ra màn hih
+            return renderHtml(abc);
+        })
+
+        function tangdan() {
+            const sort__ = data.sort((a, b) => a.price - b.price);
+            console.log(sort__);
+            renderHtml(sort__); // hiển thị ra màn hình
+        }
+        function giamdan() {
+            const revese_ = data.reverse();
+            renderHtml(revese_);
+        }
+
+    </script>
+
+
+</body>
+
+</html>
