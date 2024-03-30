@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+
+<body>
+    <ul>
+        <li>
+            <H3>
+                <h2>Fpreach()</h2> là phương thức lặp. Lặp qua từng phần tử của mảng và thực hiện 1 hàm callback cho mỗi
+                phần tử
+            </H3>
+            <br>
+            <input type="text" name="" id="search">
+            <table>
+                <thead>
+                    <th>name</th>
+                    <th>age</th>
+                </thead>
+                <tbody id="data-table">
+
+                </tbody>
+            </table>
+        </li>
+        <li>
+            <h3>
+                <h2>Map()</h2> là một phương thức thường được sử dụng thực hiện một loạt các thay đổi trên mảng và tạo
+                ra một mảng mới từ các giá trị thay đổi đó
+            </h3>
+            <br>
+            <span id="arr"></span>
+            <br>
+            <span id="arr_map">mảng dùng map() | </span>
+        </li>
+        <li>
+            <h3>
+                <h2>flatMap()</h2> có thể làm phẳng mảng và áp dụng 1 hàm callback cho từ phần
+                tử
+            </h3>
+            <pre>
+                dùng flatMap để kiểm tra điều kiện age > 3. Rồi dùng foreach lặp  hiển thị ra màn hình
+            <span id="flat_map"></span>
+        </li>
+        <li>
+            <h3><h2>filter()</h2> là phương thức tạo ra mảng mới khi thỏa mãn điều kiện</h3>
+            <pre>
+                <span>dùng filter để lọc age < 7 rồi dùng foreach in ra màn hình</span>
+                <span id="filter" ></span>
+        </li>
+
+        <li>
+            <h3><h2>reduce()</h2> dùng để thu gọn mảng thành giá trị duy nhất</h3>
+            <br>
+            <span>có thể dùng tính tổng cho mảng  </span>
+            <pre>
+            <span>const totl = data.reduce((curll,value_curr)=> {  
+                return curll + value_curr.age;
+                },0)</span> 
+                <br>
+                <p style="color: red;">data là mảng || <span style="color: darkgreen;">curll</span> giá trị tích luy trong quá trình lặp || <span style="color: darkgreen;">value_curr</span> giá trị ban dầu phần tử trong mảng || 0 là giá trị ban đầu của <span style="color: darkgreen;">curll</span> </p>
+        </li>
+
+        <li>
+            <h3><h2>every()</h2>phương thức được sử dụng kiểm tra xem phần tử trong mảng có thỏa mãn điều kiện hay không. Rồi chả về  kq: TRUE || FALSE</h3>
+            <br>
+           <div id="every_">
+
+           </div>
+        </li>
+        <li>
+            <h3><h2>Array.from()</h2> biến đổi cấu trúc mảng và tạo ra mảng mới chứ các dạng thông tin khác nhau từ mảng ban đầu </h3>
+            <br>
+            <span>   Array.from(array, item => item.value ...)</span>
+        </li>
+        <li>
+            <h3><h2>Arr.keys()</h2> duyệt qua chỉ mục của phần tử trong mảng</h3>
+        </li>
+        <li>
+            <h3><h2>array.entries()</h2>lặp qua các chỉ mục và giá trị  chỉ mục của phần tử trong mảng</h3>
+        </li>
+        <li>
+            <h3><h2>''...''  </h2> là spread operator (toán tử lan chuyền) và nó có thể lan truyền phần tử của một đối tượng có thể lặp lại vào một vị trí mới</h3>
+            <br>
+            <span>const q1 = ["Jan", "Feb", "Mar"];
+                const q2 = ["Apr", "May", "Jun"];
+                const q3 = ["Jul", "Aug", "Sep"];
+                const q4 = ["Oct", "Nov", "May"];
+                
+                const year = [...q1, ...q2, ...q3, ...q4];
+                document.getElementById("demo").innerHTML = year; </span>
+        </li>
+    </ul>
+    <script type="text/javascript">
+
+        // forach
+        //mảng 1 chiều
+        const Arr_1 = ["abc", "bbb", "kkk", "sjasj"];
+        Arr_1.forEach((value, index, arr) => {  // value là giá trị | index chỉ số mục | arr bản thân mảng đó
+            console.log(index);
+        });
+
+
+        // mảng 
+        const data = [
+            { name: "thuy", age: 4 },
+            { name: "tttt", age: 1 },
+            { name: "a", age: 9 },
+            { name: "abc", age: 11 }
+        ]
+
+        /// dùng fillter để tìm kiếm 
+
+
+        //hiển thị ra màn hình
+        function renderhtml(arr) {
+            document.getElementById('data-table').innerHTML = '';
+            arr.forEach(element => {
+                let tr = document.createElement('tr');
+                tr.innerHTML = ` <td>${element.name}</td> <td>${element.age}</td>`;
+                document.getElementById('data-table').appendChild(tr);
+            });
+        }
+        document.getElementById('search').addEventListener('input', function () {
+            const query = this.value;
+            const data_search = data.filter(item => item.name.toLocaleLowerCase().includes(query.toLocaleLowerCase()));
+            console.log("marng mới được tạo ra khi dùng filter:" + JSON.stringify(data_search));
+            return renderhtml(data_search);
+        })
+
+        data.forEach(element => {
+            //gắn row bằng cách tạo el thẻ <tr>
+            const row = document.createElement('tr');
+            row.innerHTML = ` <td>${element.name}</td> <td>${element.age}</td>`;
+            //  console.log(abc)
+
+            document.getElementById('data-table').appendChild(row);
+
+        });
+
+
+        // map()
+
+        const Arr_2 = [8, 4, 5, 6, 7];
+        document.getElementById('arr').innerHTML = Arr_2;
+        document.getElementById('arr_map').innerHTML = Arr_2.map((value, index, arr) => {
+            return value * 2;
+        }
+        )
+        console.log("dùng map() lặp rồi dùng value nhân với 2:" + Arr_2);
+        // console.log(  Arr_2.sort());
+
+
+        // floatmap()
+
+        //
+        const flatmap = data.flatMap(el => el.age > 3 ? el : []);
+        flatmap.forEach(element => {
+            // if (element.age < 3) {
+            //     console.log("đây là age<3"+ "  " + element.name);
+            // }
+            const div = document.createElement('span');
+            div.innerHTML = `name: ${element.name} | age: ${element.age} `;
+            console.log(div);
+            document.getElementById('flat_map').appendChild(div);
+        });
+        //toán tử 3 ngôi nếu điều kiện el lớn hơn 3 thì el sẽ được thực thi còn ngược lại sẽ trẻ về một mảng rỗng(__:[]__)
+
+        // mảng 1 chiều 
+        const arr_flatMap = Arr_2.flatMap((value, index, arr) => value * 2);
+        console.log("dùng flatMap với mảng 1 chiều nhân với 2 là:" + arr_flatMap);
+        console.log("lân lộn mảng 1 chieeu: " + arr_flatMap.sort(function (a, b) {
+            return 0.5 - Math.random();
+        }));
+
+        //filter()
+        const data_fil = data.filter(el => el.age < 7);
+        data_fil.forEach(element => {
+            let div = document.createElement('span');
+            div.innerHTML = `name: ${element.name} | age: ${element.age}`;
+            document.getElementById('filter').appendChild(div);
+        });
+
+        //reduce() 
+        // tính tổng age của mảng là data
+        const arr_reduce = data.reduce((curr, curr_value) => {
+            return curr + curr_value.age; // trả về tổng age trong mảng data
+        }, 0);
+        console.log("tổng của age trong mảng data là:" + arr_reduce);
+
+
+        //every()
+        const arr_evr = data.every(el => {
+            return el.age <= 11;
+        });
+        // console.log(arr_evr);
+        if (arr_evr) {
+            data.forEach(element => {
+                let span = document.createElement('span');
+                span.innerHTML = ` name: ${element.name} || tuổi: ${element.age}`;
+                document.getElementById('every_').appendChild(span);
+            });
+        }
+
+    </script>
+</body>
+
+
+</html>
