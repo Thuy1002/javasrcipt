@@ -71,7 +71,7 @@
         <li> nếu chuyền 2 tham số vào copyWithin(1,2) thì tham số thứ 1 là vị trí bắt đầu bạn muốn sao chép các phần tử,
             còn tham số thứ là vị trí phần tử sao cheps
         </li>
-        <li>Nếu chuyền vào 3 tham số thì || tham số thứ 3 là vị trí bắt đầu không bị sao chép</li>
+        <li>Nếu chuyền vào 3 tham số thì || thamr số thứ 3 là vị trí bắt đầu không bị sao chép</li>
 
 
     </ul>
@@ -85,6 +85,53 @@
         <span>eg arr_2 = arr_1.slice (1,2)</span>
         <br>
         <span>kết quả trả về là mảng arr_2 = ["111d"]</span>
+    </ul>
+
+
+    <!-- JavaScript Sorting Arrays // sắp xếp mảng -->
+    <ul>
+        <li>
+            <h3>
+                <h2 style="color: rgb(17, 17, 17);">sort()</h2> sắp xếp theo thứ tự bảng chữ cái
+            </h3>
+            <br>
+            <span>eg:const arr = ["ad","ddđ","bbb"] </span>
+            <br>
+            <span>arr.sort() || kết quả trả về là mảng được sắp xếp lại: ad->bbb->ddđ</span>
+        </li>
+        <li>
+            <h3>
+                <h2>reverse()</h2>sắp sếp theo thứ tự đảo ngược lại
+            </h3>
+            <br><span>có thể sắp xếp theo ngược lại tù bé đến lớn khi dùng sort() trước rồi chuyển lại thành reverse()
+            </span>
+        </li>
+        <li>
+            <h3>
+                <h2>toSorted()</h2> sắp xếp theo bảng chữ cái nhưng không làm thay đổi mảng ban đầu || tạo ra mảng mới
+                để sắp xếp
+            </h3>
+        </li>
+        <li>
+            <h3>
+                <h2>toReversed</h2>tương tự severse() nhưng là tạo ra mảng mới rồi sắp xếp lại chúng
+            </h3>
+        </li>
+        <li style="color: red;">Nếu muốn sắp xếp số theo thứ tụ tăng dần thì phải dùng sort().(function(a,b){ return
+            a-b} ) || giảm dần thì lấy b-a || thay đổi ngẫu nhiên thứ tự thì dùng 0.5 - Math.randum() </li>
+        <span style="color: red;">tham số a,b là các phần tử trong mảng. Trừ cho nhau nếu âm thì a đứng trước b, còn
+            dương thì b đứng trước a</span>
+    </ul>
+    <ul>
+        <button onclick="randum_()">Ngẫu nhiên</button>
+        <button onclick="min()">Min</button>
+        <button onclick="max()">MAx</button>
+        <span id="sx"></span>
+    </ul>
+
+    <ul>
+        <li>Math.min.apply dùng để tìm phần tử bé nhất trong mảng </li>
+        <span> </span>
     </ul>
 </body>
 <script>
@@ -107,11 +154,36 @@
     // console.log(arr_rong.join(1));
 
     //dùng delete để xóa phân tử trong mảng
-    delete arr_rong[1];
-    //  document.write(arr_rong);
+
+    console.log("dùng delete xóa 1 phần tử trong mảng tại vị trí là 1:" + delete arr_rong[1]);
 
 
+    //sort() sắp xếp theo thứ tự chữ cái
+    const abc = ["abc", "ddd", "zzz", "bbbb"];
+    console.log(abc.sort());
+
+
+    //sắp theo ngâu nhiên trong mảng có phần tử là number
+    const number1 = [2, 4, 5, 1, 66, 3];
+
+    document.getElementById('sx').innerHTML = number1;
+    function min() {
+        ///khi dùng ''...'' Điều này giúp bạn truyền hoặc sử dụng các phần tử của một iterable(phần tử trong mảng) một
+        // cách thuận tiện và linh hoạt hơn trong các ngữ cảnh khác nhau
+        let minn = Math.min(...number1);
+        document.getElementById('sx').innerHTML = minn;
+    }
+    function randum_() {
+        const inner = number1.sort(function (a, b) {
+            return 0.5 - Math.random();
+        })
+        document.getElementById('sx').innerHTML = inner;
+    }
+
+
+    // console.log(number1.sort(function (a, b) {
+    //     return 0.5 - Math.random();
+    // }));
 </script>
 
 </html>
-
