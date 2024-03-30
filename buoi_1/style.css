@@ -1,0 +1,8 @@
+
+class css dùng để thay thế lớp class cũ bên html khi gọi đến hàm cần thay đổi màu
+.white-text{
+    color: #ffff;
+}
+.blue-text{
+    color: blue;
+}

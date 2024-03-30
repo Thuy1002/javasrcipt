@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="index.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <br>
+    <div id="change">
+        <span class="b2">học ngu javascript</span>
+        <button onclick="ChangeColor('red')">red</button>
+        <button onclick="ChangeColor('yellow')">yellow</button>
+        <button onclick="diffChangeBLu()">Blue</button>
+        <button onclick="diffChangeWhite()"></button>
+    </div>
+    <br>
+</body>
+<script>
+    //   document.write(value) in ra màn hình 
+    var inramanhinh = " dùng document.write(value) để in ra màn hinhd";
+    document.write(inramanhinh);
+
+    function ChangeColor(newColor) {
+        const el = document.querySelector('.b2');
+        el.style.color = newColor;
+        if (newColor == 'red') {
+            alert("chuyen mau do");
+        }
+        else {
+            alert("chuyen mau vang");
+        }
+    }
+    function diffChangeBLu() {
+        var blue = document.getElementById('change');
+        //classList : là một thuộc tính của các phàn tử trong DOM
+        // cung cấp cách tiện lợi để thao tác với các lớp css của các class cũ có thể dùng thêm sửa xóa lớp css
+        blue.classList.add('blue-text');
+    }
+
+
+
+</script>
+
+</html>
