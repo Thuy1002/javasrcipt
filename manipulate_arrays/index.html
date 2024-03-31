@@ -204,7 +204,9 @@
             renderHtml(sort__); // hiển thị ra màn hình
         }
         function giamdan() {
-            const revese_ = data.reverse();
+          
+            const sort__ = data.sort((a, b) => a.price - b.price);
+            const revese_ = sort__.reverse();//reverse sắp xếp đảo ngược
             renderHtml(revese_);
         }
 
