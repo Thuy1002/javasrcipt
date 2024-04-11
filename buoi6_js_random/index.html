@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul>
+        <li>
+            <h3>
+                <h2>Math.random()</h2> trả về số ngẫu nhiên luôn thấp hơn 1 và lớn hơn không
+            </h3>
+        </li>
+
+        <li>
+            <h3>
+                <h2>Math.floor()</h2> trả về kết quả là số nguyên (từ số thập phân -> số nguyên)
+            </h3>
+            <br>
+            <span>Dùng math.floor đẻ chuyển đối số thập phân -> số nguyên</span>
+
+            <span>đây là số thập phân: <p id="sotp"></p> đây là số sau khi dùng math.floor để chuyển thành số nguyên <p
+                    id="soN"></p></span>
+        </li>
+        <li>
+            <h3>Có thể dùng function chuyển 2 tham số vào rồi set number min,max để khi chạy hàm sẽ trẻ kết quả trong
+                khoảng min - max </h3>
+            <br>
+            <span>để trả về kết quả trong khoảng thì hàm được truyền 2 tham số <br>
+                <p> Math.floor(Math.random() *(Max - Min) + Min ) (số to trừ số nhỏ) || kết quả sẽ trả về trong khoảng
+                    Min - Max không vượt
+                    quá nó </p>
+                <button onclick="trongKhoang(0,9)">Click Me</button>
+                <br>
+                <p id="min_max"></p>
+            </span>
+            <br>
+            <span>Để trả vè kết quả bao gồm cả Min - Max</span>
+            <p> Math.floor(Math.random() * (Max - Min +1 )+ Min)</p>
+            <button onclick="clickdi(0,9)">Click Me</button>
+            <br>
+            <p id="minmax"></p>
+        </li>
+    </ul>
+</body>
+<script>
+    const random = Math.random() + 2;
+    document.getElementById('sotp').innerHTML = random;
+    document.getElementById('soN').innerHTML = Math.floor(random);
+
+    /* hàm nhận 2 tham số trả về kết quả trong khoảng min - max đó **/
+    function trongKhoang(a, b) {
+        document.getElementById('min_max').innerHTML = "trong khoảng 0 - 9:" + Math.floor(Math.random() * (b - a) + a);
+    }
+    /*End  */
+    
+    /**Hàm trả về kết quả tính cả Min và Max*/
+    function clickdi(a, b) {
+        document.getElementById('minmax').innerHTML = "Từ  0 - 9:" + Math.floor(Math.random() * (b - a + 1) + a);
+    }
+    /*End  */
+</script>
+
+</html>
