@@ -14,8 +14,9 @@ function saveCo(value) {
 saveCo(data);
 
 function getCo() {
+
     const getCook = document.cookie.split(';').find(cookie => cookie.startsWith('orders='));
-    console.log("Có cookie không ?:", document.cookie); 
+    console.log("Có cookie không ?:", document.cookie);
     console.log("Chạy vào đây không?:", getCook);
     if (getCook) {
         const a = getCook.split('=')[1];
@@ -28,5 +29,5 @@ function getCo() {
     }
 
 }
-const abc = getCo();
-console.log("tổng là:", abc);
+// const abc = getCo();
+// console.log("tổng là:", abc);
