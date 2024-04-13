@@ -40,6 +40,9 @@ document.cookie = "username=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
 
 *** Lấy cookie có sẵn 
 
- *gọi ra cookie -> dùng split(';') căt bởi dấu chấm phẩy -> tìm dến cookie bằng find -> dùng startWith() để kiểm tra cookie cần tìm
+ *gọi ra cookie -> dùng split(';') căt bởi dấu chấm phẩy -> tìm dến cookie bằng find -> dùng startWith() để kiểm tra cookie cần tìm -> dùng split('=')[1] (bỏ dấu '=' tach thành mảng mới rồi lấy phần tử số 2 tại chỉ mục là 1(giá trị của cookie))
 
+
+** document.cookie.split(';').find(el=>el.startWith('cookie='))?split('=')[1];
+ 
 
