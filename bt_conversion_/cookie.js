@@ -8,7 +8,7 @@ const data = [
 ]
 
 function saveCo(value) {
-    document.cookie = "orders=" + JSON.stringify(value) + "; expires=Wed,14 Apr 2024 12:00:00 UTC; path=/"
+    document.cookie = "orders=" + JSON.stringify(value) + "; expires=Wed,16 Apr 2024 12:00:00 UTC; path=/"
     //console.log("chạy vào đay:",JSON.stringify(value))
 }
 saveCo(data);

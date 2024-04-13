@@ -37,3 +37,9 @@ eg: eg: document.cookie = "username=abc; expires=Thurday,18 Dec 2016 12:00:00 UT
 4. xóa 1 cookie
 document.cookie = "username=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
 
+
+*** Lấy cookie có sẵn 
+
+ *gọi ra cookie -> dùng split(';') căt bởi dấu chấm phẩy -> tìm dến cookie bằng find -> dùng startWith() để kiểm tra cookie cần tìm
+
+
