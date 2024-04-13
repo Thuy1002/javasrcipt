@@ -1,0 +1,37 @@
+LocaStorage
+- là một loại lưu trữ web cho phép các trang web và ứng dụng Javascript lưu trữ và truy cập dữ liệu ngay trong trình duyệt mà không có ngày hết hạn.
+
+- Dữ liệu được lưu trong trình duyệt sẽ tồn tại ngay cả khi trình duyệt bị đóng
+
+- Dữ liệu mất khi sử dụng clear history của trình duyệt.
+
+
+LocalStorage có 4 method chính: 
+- setItem() : gán dũ liệu vào localS
+- getItem(): lấy dứ liệu từ localS
+- removeItem(): Xóa dữ liệu khỏi localS
+
+1. setItem() : 
+- localStorage.setItem(' key ', 'value')  || localStrage chỉ được lưu với kiểu string || nếu là kiểu dữ liệu khác thì phải ép kiểu qua string
+
+||  key là tên biến ta truy suất và value là giá trị chuyền vào
+
+eg: localStorage.setItem('list_item', JSON.stringify(____)) 
+|| trong đó list_item: là tên biến để lữu giá trị | JSON.stringify là ép kiểu thành dạng string để lưu vào localStorage.
+
+2. getItem()
+- Lấy dữ liệu từ localStorage
+eg: localStorage.getItem('key') || key là tên biến được lưu
+
+*** khi mà muốn tính toán hoặc thao tác thì cần chuyển đổi nó về kiểu dữ liệu ban đầu dùng JSON.parsen('_data_') ***
+
+
+3.removeItem(). || xóa 
+- localStorage.removeItem('key')
+
+4. Xóa toàn bộ dữ liệu || clear()
+- localStorage.clear(); xóa toàn bộ 
+
+
+
+

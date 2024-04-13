@@ -1,0 +1,39 @@
+Cookie 
+là nơi lưu trữ thông tin người dùng trên các trang mạng website 
+- là dữ liệu lữ trữ trong file text nhỏ trên máy tính của người dùng
+-> cookie được tạo ra để giải quyết vấn đề làm thế nào để lưu dữ thông tin người dùng
+ * khi người dùng vào 1 web nào đó thì tên của người dùng đó sẽ được lưu trong cookie
+ * lần sau khi vào lại thì cookie vẫn nhớ tên người dùng đó
+
+cookie lưu trong cặp tên - giá trị như: 
+username = _value_ 
+
+- javascript có thể tạo mới và đọc,xóa cùng với thuộc tính document.cookie
+
+1. tạo cookie trong js
+
+- document.cookie = " username =abc ";
+
+- Cũng có thể thêm ngày hết hạn vào nó bằng expires( trong UTC time). Bởi theo mặc định thì khi đóng lại cookie sẽ xóa
+
+eg: document.cookie = "username=abc; expires=Thurday,18 Dec 2016 12:00:00 UTC"
+
+- cùng với path parameter, có thể nói cho trình duyệt nơi cookie thuộc về, bởi theo mặc định thì cookie thuộc trang hiện tại
+
+eg: eg: document.cookie = "username=abc; expires=Thurday,18 Dec 2016 12:00:00 UTC; path=/"
+
+2. Đọc cookie trong js
+ var abc = document.cookie;
+
+-> document.cookie nó sẽ trả về tất cả các cookie strign nhuwL cookie1= giá trị,....
+
+
+3. thay đổi cookie trong js
+
+ - giống như cách khởi tại
+ * document.cookie = "username =abc bbb;..."
+
+
+4. xóa 1 cookie
+document.cookie = "username=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
+
