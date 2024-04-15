@@ -14,7 +14,6 @@ function saveCo(value) {
 saveCo(data);
 
 function getCo() {
-
     const getCook = document.cookie.split(';').find(cookie => cookie.startsWith('orders='));
     console.log("Có cookie không ?:", document.cookie);
     console.log("Chạy vào đây không?:", getCook);

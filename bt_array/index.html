@@ -198,7 +198,7 @@
         document.getElementById('search_data').addEventListener('input', function () {
             const query = this.value;
             const abc = data.filter(item => item.name.toLocaleLowerCase().includes(query.toLocaleLowerCase()));
-            console.log("đây là mảng mới" + JSON.stringify(abc)); // dùng json.stringify để chuyển đổi từ object thành chuỗi json rồi mới log ra màn hih
+            console.log("đây là" + JSON.stringify(abc)); // đổi sang json string để kiểm tra kết quả
             return renderHtml(abc);
         })
 
@@ -208,7 +208,7 @@
             renderHtml(sort__); // hiển thị ra màn hình
         }
         function giamdan() {
-          
+
             const sort__ = data.sort((a, b) => a.price - b.price);
             const revese_ = sort__.reverse();//reverse sắp xếp đảo ngược
             renderHtml(revese_);
