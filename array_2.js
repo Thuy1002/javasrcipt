@@ -4,7 +4,7 @@
 // array chỉ mục là number và bắt đầu từ số 0
 // obj sử dụng name là index
 
-//array có thể gồm các phần tử như Number, bolean, string, obj, function,...
+//array là một kiểu dữ liệu than chiếu. Lưu giữ nhiều giá trị trong 1 biến  có thể gồm các phần tử như Number, bolean, string, obj, function,...
 
 //tạo mới arr: const arr = [...];
 
@@ -18,7 +18,7 @@ const arr = [1, 3, "xin chào", "ai"];
 
 //dùng push
 arr.push(abc = "abc");
-console.log(arr);
+console.log("chỉ mục:",arr.index);
 
 // dùng splice(start,delecount, item)
 
