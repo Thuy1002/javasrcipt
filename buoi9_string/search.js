@@ -1,0 +1,1 @@
+search() trả về kết quả tại vị trí chỉ mục mà str cần tìm

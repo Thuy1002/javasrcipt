@@ -69,7 +69,7 @@ console.log("dùng join để nối thành chuỗi:", arr.join('-'));
 
 
 //every || lặp từng phàn tử của mảng thỏa mãn điều kiện sẽ trả về true hoặc false (chỉ cần 1 phần tử trong mảng không thỏa mãn điều kiện thì kết quả trả ra là true hoặc false)
-
+        // CHỈ CẦN 1 PHẦN TỬ KHÔNG THỎA MÃN => KQ: TRUE HOẶC FALSE
 //eg :
 const ages = [32, 33, 16, 40];
 
@@ -168,3 +168,11 @@ console.log(removedItems);
 const tempGirls = Array(5).fill("girl", 0);//thêm gril vào mảng bắt đầu từ chỉ mục là 0
 console.log("fill nè:", tempGirls);
 //end fill
+
+
+
+/**some(value,index,arr) */
+chỉ cần 1 điều kiện thỏa mãn sẽ trả về kết quả true false 
+
+//   SOME => 1 ĐIỀU KIỆN ĐÚNG -> TRUE 
+// EVERY => 1 ĐIỀU KIỆN SAI -> SẼ TRẢ RA FALSE 

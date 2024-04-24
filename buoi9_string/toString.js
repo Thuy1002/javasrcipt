@@ -1,0 +1,1 @@
+toString() trả về kết quả là một chuôi. Có thể dùng để chuyển arr -> str

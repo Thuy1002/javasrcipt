@@ -1,0 +1,1 @@
+slice(indexStart, indexEnd) cắt chuỗi và trả về chuỗi mới

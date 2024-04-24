@@ -1,0 +1,1 @@
+repeat(count) : nhận tham số và trả về số lượng bản sao của str

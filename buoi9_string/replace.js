@@ -1,0 +1,1 @@
+replace(pattern, replacement) nhận 2 tham số. Tham số đầu là phần tử muốn thay đổi và tham số thứ 2 là phàn tử thay thế nó
