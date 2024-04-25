@@ -119,7 +119,7 @@ console.log("bài 2:", bai2);
 function searchGril() {
     const gender = DATA.filter(el => el.gender == "nu" && el.friends.length > 0);
     //console.log("bạn gái :", gender);
-    const friends_ = gender.sort((a, b) => a.friends - b.friends); //âm cho biết giá trị đó aphải đứng trước b. và ngược lại dương thì a sau b
+    const friends_ = gender.sort((a, b) => a.friends - b.friends); 
     const choice = friends_.shift();
     return choice.name;
 }
@@ -128,11 +128,10 @@ console.log("bạn gái của trung:", bai3);
 
 
 // nữ và ưu tiên có nhiều bạn rồi sort
-
-function addFriend() {
-    const gender = DATA.filter(el => el.gender == "nu");
+function addFriend(name) {
+    const gender = DATA.filter(el => el.name !== name && el.gender == "nu");
     return friends_ = gender.sort((a, b) => a.friends - b.friends).map(el =>el.name);
 }
 
-const bai4 = addFriend();
+const bai4 = addFriend("hoa");
 console.log("danh sách kết bạn toàn nữ:", bai4);
