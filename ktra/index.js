@@ -1,37 +1,138 @@
 
-// cho tuấn với trung gồm nhưng bạn sau :...
-// - nhưng người dưới đây chưa có bạn bè: trí, bình, an, xuân, hạ
-// giả thiết lựa chọn tốt nhất là người có bạn chung nhiều nhất
-// - Anh khôi mới lập mạng xã hội, anh mới kết bạn với chung, anh muốn kết bạn thêm với 4 người nữa.
-// Đưa ra gợi ý cho anh với những người thân thiết nhất
-// - Anh trung muốn tìm bạn gái, hay cho anh ấy 1 nựa chọn tốt nhất
-// - chị hoa hiện tại chỉ muốn kết bạn với nữ, gợi ý danh sách bạn bè cho chị ấy,
-// có sắp xếp theo thứ tự thân thiết rồi xắp xếp theo bảng chữ cái
+const DATA = [
+    {
+        name: "tuan",
+        gender: "nam",
+        friends: ["trung", "sy", "hoa", "hue", "ly"],
+    },
+    {
+        name: "sy",
+        gender: "nam",
+        friends: ["tuan"],
+    },
+    {
+        name: "trung",
+        gender: "nam",
+        friends: ["sy", "khoi", "tuan", "tu"],
+    },
+    {
+        name: "tu",
+        gender: "nam",
+        friends: ["trung"],
+    },
+    {
+        name: "hoa",
+        gender: "nu",
+        friends: ["hue", "ly", "dao", "thao", "tu"],
+    },
+
+    {
+        name: "dao",
+        gender: "nu",
+        friends: ["hoa"],
+    },
+    {
+        name: "thao",
+        gender: "nu",
+        friends: ["hoa"],
+    },
+    {
+        name: "hue",
+        gender: "nu",
+        friends: ["tuan"],
+    },
+    {
+        name: "ly",
+        gender: "nu",
+        friends: ["tuan"],
+    },
+    {
+        name: "tri",
+        gender: "nam",
+        friends: [],
+    },
+    {
+        name: "binh",
+        gender: "nam",
+        friends: [],
+    },
+    {
+        name: "an",
+        gender: "nam",
+        friends: [],
+    },
+    {
+        name: "thu",
+        gender: "nu",
+        friends: [],
+    },
+    {
+        name: "xuan",
+        gender: "nu",
+        friends: [],
+    },
+    {
+        name: "ha",
+        gender: "nu",
+        friends: [],
+    },
+    {
+        name: "khoi",
+        gender: "nam",
+        friends: ["trung"],
+    },
+];
+//tìm tên
+const findUser = (name) => {
+    return DATA.find((item) => item.name === name);
+};
+
+function mutual_friends(user1, user2) {
+    const u1 = findUser(user1);
+    const u2 = findUser(user2);
+    return u1.friends.filter(el1 => u2.friends.some(el2 => el1 == el2));
+}
+const bai1 = mutual_friends("trung", "sy");
+console.log("lời giải bài 1:", bai1);
 
 
-const Tuan = [{ name: "trung", sex: "nam" },
-{ name: "sỹ", sex: "nam" },
-{ name: "hoa", sex: "nu" },
-{ name: "huệ", sex: "nu" },
-{ name: "ly", sex: "nu" }];
+// lọc ưu tiên có bạn trước 
+function ListBB(name, number) {
+    const user = findUser(name);
+    if (!user) {
+        return `Không tìm thấy người dùng trong dữ liệu.`;
+    }
+    const uutien = DATA.filter(user => user.name !== name && user.friends.length > 0); // uue tiên có bạn
+    // console.log(uutien);
+    const listbb = uutien
+        .map(el => el.name)
+        .filter((name, index, self) => self.indexOf(name) === index)
+        .slice(0, number);
+    return listbb;
+}
+const bai2 = ListBB("khoi", 4);
+console.log("bài 2:", bai2);
 
-const Trung = [{ name: "sỹ", sex: "nam" },
-{ name: "khôi", sex: "nam" },
-{ name: "tuấn", sex: "nam" },
-{ name: "tú", sex: "nam" }];
 
-// danh sách bạn chung tuấn và trung
-function mutual_friends(arr1, arr2) {
-    return arr1.filter(el => arr2.some(el2 => el.name == el2.name))
+
+// tìm bạn gái cho trung uuaw tiên có nhiều bạn
+function searchGril() {
+    const gender = DATA.filter(el => el.gender == "nu" && el.friends.length > 0);
+    //console.log("bạn gái :", gender);
+    const friends_ = gender.sort((a, b) => a.friends - b.friends); //âm cho biết giá trị đó aphải đứng trước b. và ngược lại dương thì a sau b
+    const choice = friends_.shift();
+    return choice.name;
+}
+const bai3 = searchGril();
+console.log("bạn gái của trung:", bai3);
+
+
+// nữ và ưu tiên có nhiều bạn rồi sort
+
+function addFriend() {
+    const gender = DATA.filter(el => el.gender == "nu");
+    return friends_ = gender.sort((a, b) => a.friends - b.friends).map(el =>el.name);
 }
 
-
-const abc = mutual_friends(Tuan, Trung);
-console.log(abc);
-//khôi mới kết bạn với chung. Anh muốn kết bạn thêm 4 người nữa
-// lựa chọn tốt nhất là nhiều bạn chung nhất
-  
-
-
-//lựa chọn bạn gái 
-
+const bai4 = addFriend();
+console.log("danh sách kết bạn toàn nữ:", bai4);
