@@ -163,23 +163,21 @@ const mutualFriends = getMutualFriends("tuan", "trung");
 
 //tìm 4 bạn cho khôi
 function findFriends(userName, number) {
-    const userFriends = getUserFriends(userName);
-    const potentialFriends = users.filter(user => user.name !== userName && !userFriends.includes(user.name));
-    //  console.log(potentialFriends);
+    const potentialFriends = users.filter(user => user.name !== userName);
     // Sắp xếp
     potentialFriends.sort((a, b) => {
-        const aMutualFriends = getMutualFriends(userName, a.name).length;
-        const bMutualFriends = getMutualFriends(userName, b.name).length;
+        const aMutualFriends = getMutualFriends(a.name).length;
+        const bMutualFriends = getMutualFriends(b.name).length;
         return bMutualFriends - aMutualFriends;
     });
-    // console.log("1",potentialFriends);
+    console.log("2", potentialFriends);
     const selectedFriends = potentialFriends.slice(0, number).map(user => user.name);
 
     return selectedFriends;
 }
 
 const khoiFriends = findFriends("khoi", 4);
-//console.log("4 người bạn cho Khôi:", khoiFriends);
+console.log("4 người bạn cho Khôi:", khoiFriends);
 
 
 //tim bạn là nữ để kb 
@@ -204,6 +202,6 @@ function addFriends(userName) {
         return { name: friend.name, mutuals: mutuals };
     });
     const list = femaleFriends.sort((a, b) => b.mutuals - a.mutuals);
-    return list.map(user => user.name );
+    return list.map(user => user.name);
 }
-console.log(addFriends("hoa"));
+//console.log(addFriends("hoa"));
