@@ -1,0 +1,1 @@
+Promise.any() trả về resolved bất kỳ nào hoạt động với giá trị hoạt độgn đầu tiên

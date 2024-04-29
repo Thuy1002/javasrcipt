@@ -83,35 +83,35 @@ const DATA = [
     },
 ];
 //tìm tên
-const findUser = (name) => {
+const findUserinf = (name) => {
     return DATA.find((item) => item.name === name);
 };
 
 function mutual_friends(user1, user2) {
-    const u1 = findUser(user1);
-    const u2 = findUser(user2);
+    const u1 = findUserinf(user1);
+    const u2 = findUserinf(user2);
     return u1.friends.filter(el1 => u2.friends.some(el2 => el1 == el2));
 }
 const bai1 = mutual_friends("trung", "sy");
 console.log("lời giải bài 1:", bai1);
 
 
-// lọc ưu tiên có bạn trước 
-function ListBB(name, number) {
-    const user = findUser(name);
-    if (!user) {
-        return `Không tìm thấy người dùng trong dữ liệu.`;
-    }
-    const uutien = DATA.filter(user => user.name !== name && user.friends.length > 0); // uue tiên có bạn
-    // console.log(uutien);
-    const listbb = uutien
-        .map(el => el.name)
-        .filter((name, index, self) => self.indexOf(name) === index)
-        .slice(0, number);
-    return listbb;
-}
-const bai2 = ListBB("khoi", 4);
-console.log("bài 2:", bai2);
+// // tm cho khôi 4 bạn ưu tiên có bạn chung
+// function listBB(name, number) {
+//     const user = findUserinf(name);
+//     if (!user) {
+//         return `Không tìm thấy người dùng trong dữ liệu.`;
+//     }
+//     const uutien = DATA.filter(user => user.name !== name && user.friends.length > 0); // uue tiên có bạn
+//     // console.log(uutien);
+//     const listbb = uutien
+//         .map(el => el.name)
+//         .filter((name, index, self) => self.indexOf(name) === index)
+//         .slice(0, number);
+//     return listbb;
+// }
+// const bai2 = ListBB("khoi", 4);
+// console.log("bài 2:", bai2);
 
 
 
@@ -135,3 +135,5 @@ function addFriend(name) {
 
 const bai4 = addFriend("hoa");
 console.log("danh sách kết bạn toàn nữ:", bai4);
+
+//sửa tên biến 
