@@ -1,0 +1,69 @@
+promise
+ - là một obj chứa giá trị tương lai của hoạt động không đồng bộ. Ví dụ nếu ta đang yêu cầu một số dữ liệu từ server, promise hứa với chúng ta sẽ lấy dữ liệu chúng ta có thể sử dụng trong tương lai
+ --- đơn giản là một hàm chả về một obj
+
+
+ Trạng thái Promise
+ - chưa được giả quyết(unresolved), đã giả quyết (resolved), hoặc bị từ chối(rejected)
+
+
+Creating a Promise
+ syntax: 
+
+ const promise = new Promise((resolve,reject) => {
+		
+		....code something ....
+	});
+
+	- resolve và reject có thể là một string, number, boolean, array, obj
+
+	eg:
+	const promise = new Promise((resolve, reject) => {
+        const randomNumber = Math.random();
+  	setTimeout(() => {
+  	  if(randomNumber < 6) {
+   		   resolve('All things went well!');
+  	  } else {
+    		reject('Something went wrong');
+ 	 }
+ 		 }, 2000);
+		});
+
+  *** Lời hứa chỉ có thể được giải quyết hoặc bị từ chối một lần. Việc gọi thêm resolve() hoặc reject() không có tác dụng đối với trạng thái Promise.
+
+eg: 
+ const promise = new Promise((resolve, reject) => {
+  resolve('Promise resolved');  // Promise is resolved
+  reject('Promise rejected');   // Promise can't be rejected
+});
+
+resolve được gọi trước lên sẽ không gọi được reject sau đó
+
+*** sử dụng promise với then(), catch()
+
+
+
+*** promise.all(iterable) nhận một mảng các promise 
+
+*** có thể tổng hợp các kết quả của nhiều lời hứa. Nó thường được sử dụng khi có nhiều tác vụ không đồng bộ liên quan đến mã ổng thể dựa vào hoạt động thành công || tất cả những tác vụ này chúng tối muốn thực hiên trước khi tiếp tục thực thi mã.
+
+** promise.all() từ chối tất cả promise nà bị tự chối
+ - iterable một promise có thể lặp (chảng hạn như array)
+
+ - giá trị trả về resolve(thông qua) nếu thỏa mãn
+ - được thực hiện không đồng bộ: khi tất cả nhưng promise được thông qua. Giá trị thực hiện là một mảng các giá trị thực hiện, theo thứ tự lời hứa được thông qua.
+ - Bị từ chối (reject) không thoa mãn điều kiện
+
+
+
+
+
+/**         promise.all()   **/
+
+- nhận một mảng các promise (promise.all([ar1,arr2,...]) và trả về 1 promise mới thực hiện khi tất cả các lời hứa bên trong mảng đầu vafoo đã hoàn thành hoặc từ chối ngay khi một trong các lời hứa trong mảng từ chối
+
+
+
+/**    Promise.race()  ***/
+- Promise.case nhạn một marng các promise đầu vào và trả về một promise mới thực hiện ngay jhi trong các promise trong mảng đầu vào thực hiện hoặc từ chối nga khi 1 trong các promise trong mảng đầu vào từ chối (cái nào chạy trước thì chạy trước và chả về cái đầu tiên )
+
