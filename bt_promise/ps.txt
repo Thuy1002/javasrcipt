@@ -1,0 +1,47 @@
+api là giao diện lập trình ứng dụng( Application Programming interface ) là một tập hợp các tính năng và quy tắc tồn tại trong trương trình.
+Api là một bộ quy tắc, định nghĩa và giao thức cho phép 2 phần mền gia tiếp và chao đổi dữ liệu với nhau. 
+- Đóng vai trò trung gian, giúp các ứng dụng khác nhau có thể tương tác và kết nối với nhau
+- là  dạng dữ liệu json
+
+
+--call api: gửi request đến api để sử dụng các tính năng của nó (thường thông qua giao thức http | get,post,...)
+
+**cơ chế hoạt động
+gửi yêu cầu đến api thông qua các giao thức của http
++ url: địa chỉ api muốn truy cập
++ phương thức http: get,post, ...
++ header chứa thông tin bổ sung yêu cầu( khóa api, định dạng dữ liệu )
+
+- nhận phản hồi: api sử lý yêu cầu rồi gửi lại phản hồi. Phản hồi sẽ có trạng thái, dữ liệu được yêu cầu, thông tin bổ sung 
+
+- sử lý phản hồi:ứng dụng của mình sẽ nhận và sử lý phản hồi từ api( dữ liệu được chả về có thể được sử dụng hiển thị lên giao diện người dùng, lưu trữ trong csdl, ..)
+
+**fetch dùng để tìm nạp tài nguyên(đơn giản là lấy tài nguyên) -> nó chả về một promise
+
+
+
+es6:
+thay thế cú pháp function thành dấu mũi tên ( => ) 
+không cần dùng return cho hàm có một biểu thức duy nhất
+
+** cách sử dụng async/awai
+
+- sử dụng từ khóa async trước khai báo hàm để đánh dấu nó là hàm bất dồng bộ
+
+- sử dụng awai trước biểu thức bất đồng bộ để tạm dừng việc thực thi hàm cho đến khi biểu thức đó được giải quyết
+
+- xử lý lỗi: sử dụng try .. catch để sử lý các lôi có thể xảy ra trong các thao tác bất đồng bộ
+
+
+cú pháp:
+
+đánh dấu hàm bất đồng bộ bằng async
+const test = async() => {
+    try{      // xử lý lỗi có thể xảy ra 
+        const promise = await fetch(url);
+        cosnt data = await promise.json();
+
+    }catch (erro){    // xử lý lỗi có thể xảy ra 
+        console.log(erro);
+    }
+}

@@ -14,4 +14,14 @@ rejected : lỗi
 // .catch() khi thất bại reject
 // .finally()  khi hoàn thành 1 trong 2 resolved hoặc reject
 
+const promise  = new Promise((resolved,rejected)=>{
+    const a1 = Math.random();
+})
+promise.then((data)=>{setTimeout(alert)})
 
+//bt promise đợi 3 cái api để trả về kết quả
+// cùng sử dụng như vậy nhưng dùng es6,7 (asyn wait)
+// -> mô tả luồng chạy
+// -> só sánh cú pháp cách sử dụng
+//  - note ra các key trong promise 
+/****/
