@@ -28,7 +28,7 @@ không cần dùng return cho hàm có một biểu thức duy nhất
 
 - sử dụng từ khóa async trước khai báo hàm để đánh dấu nó là hàm bất dồng bộ
 
-- sử dụng awai trước biểu thức bất đồng bộ để tạm dừng việc thực thi hàm cho đến khi biểu thức đó được giải quyết
+- sử dụng await trước biểu thức bất đồng bộ để tạm dừng việc thực thi hàm cho đến khi biểu thức đó được giải quyết
 
 - xử lý lỗi: sử dụng try .. catch để sử lý các lôi có thể xảy ra trong các thao tác bất đồng bộ
 

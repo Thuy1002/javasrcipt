@@ -25,15 +25,19 @@
 // /***dùng es6 */
 
 const getData = async (data) => {
-    const res = await fetch(data);
-    return res.json();
+    try {
+        const res = await fetch(data);
+        return res.json();
+    } catch (erro) {
+        return erro;
+    }
 }
 
 const promiseAll = async () => {
     try {
-        const data1 = getData('https://jsonplaceholder.typicode.com/todos/1');
-        const data2 = getData('https://jsonplaceholder.typicode.com/comments/1');
-        const data3 = getData('https://jsonplaceholder.typicode.com/albums/1');
+        const data1 = await getData('https://jsonplaceholder.typicode.com/todos/1');
+        const data2 = await getData('https://jsonplaceholder.typicode.com/comments/1');
+        const data3 = await getData('https://jsonplaceholder.typicode.com/albums/1');
 
         const result = await Promise.all([data1, data2, data3]);
         console.log(result);
