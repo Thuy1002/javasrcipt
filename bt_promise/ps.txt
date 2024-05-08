@@ -20,7 +20,9 @@ gửi yêu cầu đến api thông qua các giao thức của http
 
 
 
-es6:
+
+
+* ES6:
 thay thế cú pháp function thành dấu mũi tên ( => ) 
 không cần dùng return cho hàm có một biểu thức duy nhất
 
@@ -45,3 +47,40 @@ const test = async() => {
         console.log(erro);
     }
 }
+
+
+* ES7: 
+- ký hiệu toán tử lũy thùa : **
+thay vì viết 2*2*2*2*2 -> 2**5;
+
+- bổ sung phương thức mới cho array, object
+
++ array.prototype.includes() kiểm tra xem một giá trị có tồn tại trong mảng hay không
+
++ array.prototype.find() tìm kiếm phần tử đầu tiên của mảng
+
++ findIndex() tìm kiếm vị trí chỉ mục đầu tiên của mảng
+
++ entries chuyển đổi object thành mổ mảng gồm các cặp key:value
+
++ values: lấy danh sách các trị của một đối tượng
+
+
+** Rest parameters: thu thập tham số còn lại có trong hàm
+** spread operator: giải nén các cáu trúc dữ liệu (array, obj) trong các biểu thức
+ví dụ:
+
+function sum(...numbers){ // dùng rest parameters
+    let total = 0;
+    for(const num of numbers){
+        total += num;
+    }
+    return total;
+}
+
+console.log(sum(1,2,3,4,5)) //-> 15;
+
+
+const numbers = [1,2,3,4];
+consr numberNew = [...numbers,5,6]; // spread operator
+console.log(numberNew); // 1,2,3,4,5,6 

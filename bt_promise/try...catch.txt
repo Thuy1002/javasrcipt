@@ -1,0 +1,35 @@
+** try..catch: sử lý lỗi một cách hiệu quả. Noa cho phép bạn bao bọc một đoạn code có thể xảy ra lỗi và xác định csac hành động cần thực hiện
+
+syntax:
+
+try{
+//code xử lý
+}catch(error){
+// code sử lý lỗi
+}
+
+Ngoài ra còn có finally: khối mã thực thi sau try..catch, bất kể có lỗi hay không. Thường được sử dụng để giải phóng tài nguyên hoặc thực hiện công đoạn cuối
+
+syntax: 
+
+try {
+  // Khối mã có thể xảy ra lỗi
+} catch (error) {
+  // Khối mã xử lý lỗi
+} finally {
+  // Khối mã được thực thi sau try và catch
+}
+
+**Ném lỗi (throw): dùng để ném lỗi trong chương trình
+
+
+syntax:
+
+const additon  = (a,b){
+    if(a === 0){
+    throw new Error(" lỗi rồi nài ");
+       }
+        return a*b;
+    }
+
+**** thường được sử dụng vào các chức năng có khả năng xảy ra lỗi, hoặc cần kiểu soát lỗi,...
