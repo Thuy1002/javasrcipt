@@ -43,13 +43,13 @@ const getData = async (url) => {
     }
 }
 const promiseAll = async () => {
-
     const urlPromise1 = getData('https://jsonplaceholder.typicode.com/todos/1');
     const urlPromise2 = getData('https://jsonplaceholder.typicode.com/comments/1');
-    const urlPromise3 = getData('https://jsonplaceholder.typicode.com/albums/10000-invalied');//albums 
-    const result = await Promise.all([urlPromise1, urlPromise2, urlPromise3]); //
-    // Promise.all chờ cả
+    const urlPromise3 = getData('https://jsonplaceholder.typicode.com/albums/1-invalid');
+    
+    const result = await Promise.all([urlPromise1, urlPromise2, urlPromise3]);
     console.log(result);
+
 }
 
 promiseAll();
