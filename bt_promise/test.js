@@ -3,20 +3,20 @@
 // // - luong chay va cach hoat dong cua try...catch( khi nao chay vao try | khi nao chay vao catch )
 
 
-// // //đợi 1 promise thành công rồi mới cho thực hiện tiếp promise  thứ 2 
+//đợi 1 promise thành công rồi mới cho thực hiện tiếp promise  thứ 2 
 
-// // const promiseA = new Promise((resolved, reject) => {
-// //     resolved("xin chào");
-// // })
-// // const promiseB = new Promise((resolved, reject) => {
-// //     resolved("xin chào 2");
-// // })
+const promiseA = new Promise((resolved, reject) => {
+    resolved("xin chào");
+})
+const promiseB = new Promise((resolved, reject) => {
+    resolved("xin chào 2");
+})
 
-// // const abc = promiseA.then((result) => {
-// //     return promiseB;
-// // }).then(data => {
-// //     console.log(data);
-// // })
+const abc = promiseA.then((result) => {
+    return promiseB;
+}).then(data => {
+    console.log(data);
+})
 
 
 
@@ -62,27 +62,27 @@
 // // Expected output: Array [3, 42, "foo"]
 
 
-const promise1 = Promise.resolve(3);
-const promise2 = Promise.resolve(5);
-const promise3 = Promise.reject("Lỗi!");
+// const promise1 = Promise.resolve(3);
+// const promise2 = Promise.resolve(5);
+// const promise3 = Promise.reject("Lỗi!");
 
-Promise.all([promise1, promise2, promise3])
-    .then(values => {
-        console.log(values); // [3, 5, **Lỗi!]** - Lỗi từ promise3
-    })
-    .catch(error => {
-        console.error("Lỗi ở hàm sử dụng all:", error); // "Lỗi!"
-    });
+// Promise.all([promise1, promise2, promise3])
+//     .then(values => {
+//         console.log(values); // [3, 5, **Lỗi!]** - Lỗi từ promise3
+//     })
+//     .catch(error => {
+//         console.error("Lỗi ở hàm sử dụng all:", error); // "Lỗi!"
+//     });
 // nếu promise.all có promise chả về reject thì sẽ ưu tiên log ra lôi. Resolved sẽ không được hiện ra;
 
-const ac = new Promise((re, reject) => {
-    reject("lỗi nài");
-})
-ac.then(data => {
-    console.log("đây là thành công",data)
-}).catch((error => {
-    console.log("đây là lỗi:", error);
-}))
+// const ac = new Promise((re, reject) => {
+//     reject("lỗi nài");
+// })
+// ac.then(data => {
+//     console.log("đây là thành công", data)
+// }).catch((error => {
+//     console.log("đây là lỗi:", error);
+// }))
 
 // const aa = async () => {
 //     try {
