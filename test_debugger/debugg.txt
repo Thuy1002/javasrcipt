@@ -1,0 +1,25 @@
+- Debugger trên chorm: 
+ mở DevTools (f12) 
+ -> chọn sources 
+ -> click Event Listener Breakpoin (khi click vào sẽ hiện ra 1 loạt option các event mở rộng như click, mouse,...)
+ -> chọn event  click ( test trong trường hợp event click )
+ -> khi đó thao tác lại trên màn hình vào button sẽ hiện ra màn hình devtools hiển thị hàm sử lý
+
+ ** trong màn hình hiện thị sẽ có các ký tự để duyệt qua lần lượt từng dòng code 
+
+ + mũi tên chỉ sang phải || step : bước 
+
+ + mũi tên đi xuống ||  Step into next function call () : bước gọi hàm lệnh tiếp tục duyệt
+ 
+ + mũi tên đi lên || step out of current function : bước không chạy vào hàm 
+
++ step over next function call : bước qua lệnh gọi hàm tiếp theo 
+
+
+** Ngoài ra có thể kiểm tra bằng cách click vào dòng hiển thị sử lý logic trên màn devtools để check 
+
+
+*** Check giá trị của biến bằng cách sử dụng watch expressions
+
+ + click vào watch trên source của devtools -> chọn add watach epressions 
+ 
